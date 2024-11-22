@@ -18,7 +18,6 @@ import os  # Add this import
 # Add this block to configure the port
 if 'PORT' in os.environ:
     port = int(os.environ['PORT'])
-    st.set_option('server.port', port)
 
 # Load the trained model and TF-IDF vectorizer
 model = pickle.load(open("models/model.pkl", "rb"))
