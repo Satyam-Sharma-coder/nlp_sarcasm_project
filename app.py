@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pickle
 import PyPDF2
@@ -10,6 +11,14 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from contractions import fix  # To handle contractions like don't -> do not
+
+import streamlit as st
+import os  # Add this import
+
+# Add this block to configure the port
+if 'PORT' in os.environ:
+    port = int(os.environ['PORT'])
+    st.set_option('server.port', port)
 
 # Load the trained model and TF-IDF vectorizer
 model = pickle.load(open("models/model.pkl", "rb"))
